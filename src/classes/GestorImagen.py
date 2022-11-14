@@ -1,5 +1,6 @@
 from PIL import Image
 from numpy import asarray
+import os
 
 class GestorImage:
 
@@ -16,7 +17,8 @@ class GestorImage:
                 if(self.matrizImagen[i][j] not in coloresImagen):
                     coloresImagen.append(self.matrizImagen[i][j])
 
-        return coloresImagen            
+        return coloresImagen
+                    
     def crearCopia(self):
         return self.matrizImagen.copy()
     
@@ -43,7 +45,9 @@ class GestorImage:
 
 def main():
 
-    x = GestorImage('../assets/example_1.bmp')
+    absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
+    absolute_image_path = os.path.join(absolute_folder_path, '../assets/example_1.bmp')
+    x = GestorImage(absolute_image_path)
     #c2 = x.buscadorColoresImagen()
     x.separadorFiguras()
     
