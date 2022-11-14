@@ -45,23 +45,16 @@ class GestorImage:
 
 def main():
 
-    x = GestorImage('../assets/example_2.bmp')
+    x = GestorImage('../assets/example_1.bmp')
     #c2 = x.buscadorColoresImagen()
     x.separadorFiguras()
     
-    #figuras = x.obtenerAlmacenador()    
-    #imagen1 = figuras.pop(0)
-    #newNumpy1 = numpy.array(imagen1)
+    figuras = x.obtenerAlmacenador()    
+    imagen1 = figuras.pop(0)
+    newNumpy1 = numpy.array(imagen1)
     #print(newNumpy1)
-    #data1 = Image.fromarray((newNumpy1).astype(numpy.uint8))
-    #data1.save('example_1_01.bmp')
-
- 
-
-
-    
-    #data = Image.fromarray(m)
-    #data.save('example_1_01.bmp')
+    data1 = Image.fromarray((newNumpy1).astype(numpy.uint8))
+    data1.save('example_1_01.bmp')
 
 
 main()
