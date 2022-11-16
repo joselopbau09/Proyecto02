@@ -15,10 +15,12 @@ class AnalisisDatos:
 
     def analizaArreglo(self):
         sumas = []
+        print(len(self.arregloRayos))
         for i in range(len(self.arregloRayos)):
             for j in range(5):
-                if((i+j+1) < len(self.arregloRayos)):
-                    sumas[i] += self.arregloRayos[i+j+1] - self.arregloRayos[i+j]
+                if((i+j+1) < len(self.arregloRayos)-1):
+                    diferencia = self.arregloRayos[i+j+1] - self.arregloRayos[i+j]
+                    sumas.append(diferencia)
         maximos = self.encuentraMaximos(sumas)
         return maximos
 
@@ -26,6 +28,6 @@ class AnalisisDatos:
 def main():
     arreglo = [1,2,3,4,3,2,1]
     o = AnalisisDatos(arreglo)
-    print(o.analizaArreglo)
+    print(o.analizaArreglo())
 
 main()
