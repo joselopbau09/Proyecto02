@@ -1,4 +1,5 @@
 from PIL import Image
+import numpy as np
 from numpy import asarray
 import os
 
@@ -7,16 +8,26 @@ class GestorImage:
     def __init__(self, imagen):
         self.imagen = imagen
         img = Image.open(f'{imagen}')
-        self.matrizImagen = asarray(img)
+        self.matrizImagen = asarray(img, dtype = str)
 
     def buscadorColoresImagen(self):
         coloresImagen = []
         coloresImagen.append(self.matrizImagen[0][0])
+        print(*coloresImagen, sep = " , ")
         for i in range(1,len(self.matrizImagen)):
             for j in range(1, len(self.matrizImagen[0])):
-                if(self.matrizImagen[i][j] not in coloresImagen):
-                    coloresImagen.append(self.matrizImagen[i][j])
-
+                colorPixel = self.matrizImagen[i][j]
+                print(colorPixel)
+                contador = 0
+                for color in coloresImagen:
+                    print(color)
+                    if(color == colorPixel):
+                        contador += 1
+                if(contador == len(coloresImagen)):
+                    coloresImagen.append(colorPixel)
+                #print(*coloresImagen)
+                #if(colorPixel not in coloresImagen):
+                    #coloresImagen.append(colorPixel)
         return coloresImagen
                     
     def crearCopia(self):
