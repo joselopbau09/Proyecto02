@@ -4,7 +4,7 @@ import numpy
 from numpy import asarray
 import os
 
-class GestorImage:
+class GestorImagen:
 
     def __init__(self, imagen):
         self.imagen = imagen
@@ -42,22 +42,3 @@ class GestorImage:
     
     def obtenerAlmacenador(self):
         return self.almacenadorFiguras
-
-def main():
-
-    absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
-    absolute_image_path = os.path.join(absolute_folder_path, '../assets/example_2.bmp')
-    x = GestorImage(absolute_image_path)
-    #c2 = x.buscadorColoresImagen()
-    x.separadorFiguras()
-    
-    figuras = x.obtenerAlmacenador()
-    print(len(figuras))    
-    imagen1 = figuras.pop(0)
-    newNumpy1 = numpy.array(imagen1)
-    #print(newNumpy1)
-    data1 = Image.fromarray((newNumpy1).astype(numpy.uint8))
-    data1.save('example_2_01.bmp')
-
-
-main()

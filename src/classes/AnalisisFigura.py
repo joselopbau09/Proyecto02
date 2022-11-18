@@ -1,6 +1,16 @@
+import math
+
 class AnalisisFigura:
 
-    def buscadorCentro(self, imagenFigura):
+    def __init__(self, imagenFigura):
+        self.imagenFigura = imagenFigura
+        self.colorFondo = self.imagenFigura[0][0]
+
+    def cambiarImagen(self,imagenFigura):
+        self.imagenFigura = imagenFigura
+        self.colorFondo = self.imagenFigura[0][0]
+
+    def buscadorCentro(self):
         suma_x = 0
         suma_y = 0
         numPixeles = 0
@@ -8,11 +18,10 @@ class AnalisisFigura:
         max_x = 0
         min_y = len(self.imagenFigura)
         max_y = 0
-        colorFondo = self.imagenFigura[0][0]
-        for i in range(1,len(self.imagenFigura)):
-            for j in range(1,len(self.imagenFigura)):
+        for j in range(1,len(self.imagenFigura)):
+            for i in range(1,len(self.imagenFigura)):
                 colorPixel = self.imagenFigura[i][j]
-                if(colorPixel != colorFondo):
+                if(colorPixel != self.colorFondo):
                     suma_x += i
                     suma_y += j
                     numPixeles += 1
@@ -29,4 +38,39 @@ class AnalisisFigura:
         anchura = max_x - min_x
         altura = max_y - min_y
         h = max(anchura, altura) / 2
+        self.setPixel(centro_x, centro_y, [0,0,0])
         return centro_x, centro_y, h
+
+    def setPixel(self, x, y, color):
+        self.imagenFigura[int(y)][int(x)] = color
+
+    def dentro(self, coord_x, coord_y):
+        colorPixel = self.imagenFigura[int(coord_x)][int(coord_y)]
+        tamaño = len(self.imagenFigura)
+        if(coord_x > tamaño or coord_y > tamaño):
+            return False
+        if(colorPixel != self.colorFondo):
+            self.setPixel(coord_x, coord_y, [0,0,0])
+            return True
+        else:
+            return False
+
+    def rayos(self, centro_x, centro_y, hipotenusa):
+        arregloRayos = []
+        coord_x = centro_x
+        coord_y = centro_y
+        for i in range(360):
+            coord_x = centro_x
+            coord_y = centro_y
+            dx = hipotenusa * math.cos(math.radians(i))
+            dy = hipotenusa * math.sin(math.radians(i))
+            paso = max(abs(dx),abs(dy))
+            while(self.dentro(coord_x, coord_y) == True):
+                coord_x += dx / paso
+                coord_y += dy / paso
+            longRayo = math.sqrt((coord_x - centro_x)**2 + (coord_y - centro_y)**2)
+            arregloRayos.append(longRayo)
+        return arregloRayos
+
+    def obtenerImagen(self):
+        return self.imagenFigura
