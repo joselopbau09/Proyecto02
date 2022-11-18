@@ -1,28 +1,49 @@
 
 from PIL import Image
 import copy
-import numpy
 from numpy import asarray
 
-class GestorImage:
+""" Módulo GestorImagen """
+class GestorImagen:
+    """ Clase que se encarga de hacerla lectura de la imagen y crear una copia para cada figura de la imagen. 
+
+    Attributes: 
+        matrizImagen (list): Almacena el valor RGB de cada pixel de la imagén.
+        almacenadorFiguras (list): Contiene las representaciones en matriz las figuras por separado.
+
+
+    """
 
     def __init__(self, imagen):
-        self.imagen = imagen
+        """ Constructor que transforma una imagen en su representación matricial, e inicializa los atributod de la clase.
+
+        """
         img = Image.open(f'{imagen}')
-        self.__matrizImagen = asarray(img).tolist()
+        self.matrizImagen = asarray(img).tolist()
         self.almacenadorFiguras = []
 
     def buscadorColoresImagen(self):
+        """ Método que se encarga obtener los colores que se encuantran en la imagen.
+
+        Returns:
+            list: Colores en formato RGB de cada color.
+
+        """
+
         coloresImagen = []
-        coloresImagen.append(self.__matrizImagen[0][0])
-        for i in range(1,len(self.__matrizImagen)):
-            for j in range(1, len(self.__matrizImagen[0])):
-                if(self.__matrizImagen[i][j] not in coloresImagen):
-                    coloresImagen.append(self.__matrizImagen[i][j])
+        coloresImagen.append(self.matrizImagen[0][0])
+        for i in range(1,len(self.matrizImagen)):
+            for j in range(1, len(self.matrizImagen[0])):
+                if(self.matrizImagen[i][j] not in coloresImagen):
+                    coloresImagen.append(self.matrizImagen[i][j])
 
         return coloresImagen            
     
     def separadorFiguras(self):
+        """ Método que crea las copias para cada figura en particular y las guarda en almacenadorFiguras.
+
+        """
+
         colores = self.buscadorColoresImagen()
         colorFondo = colores.pop(0)
         while( len(colores) != 0):
@@ -35,11 +56,22 @@ class GestorImage:
             self.almacenadorFiguras.append(imagen)
     
     def obtenerMatriz(self):
-        return self.__matrizImagen
+        """ Método que se encarga de obtener el atributo matrizImagen.
+        
+        Returns:
+            list: Representación matricial de la imagen.
+
+        """
+
+        return self.matrizImagen
             
-    def obtenerImagen(self):
-        return self.imagen
-    
     def obtenerAlmacenador(self):
+        """ Método que se encarga de obtener el atributo almacenadorFiguras.
+        
+        Returns:
+            list: Contiene las represntación matricial de las imagenes de cada figura.
+
+        """
+
         return self.almacenadorFiguras
 
