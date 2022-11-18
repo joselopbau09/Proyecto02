@@ -1,10 +1,23 @@
 class DetectorVertices:
+    """ Clase que recibe una lista con las distancias de la figura
+        y la procesa para obtener el número de vértices.
+
+        Attributes: 
+        distancias (list): lista de las distancias.
+
+    """
     
     def __init__(self, distancias):
+        """Metodo que crea un objeto para dectectar los vertices
+           en el arreglo con las distancias de la figura.
+
+        """
         self.distancias = distancias
 
 
     def suavizaDistancias(self):
+        """Metodo que reduce el ruido entre las distancias del centro a los extremos de la figura.
+        """
         dist_suavizadas = []
         for i in range(len(self.distancias)):
             if(i < 2):
@@ -18,11 +31,18 @@ class DetectorVertices:
         #print("Dist_suavizadas: " + str(dist_suavizadas))
     
 
-    def vertices(self):
+    def cuentaVertices(self):
+        """Algoritmo para detectar los vertices de una figura usando la lista
+           de distancias previamente procesada.
+
+           Returns: 
+                list: los vértices en la figura.
+
+        """
         valor_vertice = 0
         indice_vertice = 0
         promedio_dist = self.promedioDistancias(self.distancias)
-        indices_vertices = []
+        vertices = []
         
         for i, valor in enumerate(self.distancias):
             if valor > promedio_dist:
@@ -31,17 +51,27 @@ class DetectorVertices:
                     indice_vertice = i
 
             elif valor < promedio_dist and indice_vertice != 0:
-                    indices_vertices.append(indice_vertice)
+                    vertices.append(indice_vertice)
                     indice_vertice = 0
                     valor_vertice = 0
 
         if indice_vertice != 0:
-            indices_vertices.append(indice_vertice)
+            vertices.append(indice_vertice)
         #print("Indices: " + str(indices_vertices))
-        return indices_vertices
+        return vertices
 
         
     def promedioDistancias(self, distancias):
+        """Metodo auxiliar para reducir el ruido en las distancias,
+           promedia elementos en una lista.
+
+            Args: 
+                distancias (list): listade la que se van a obtener los promedios.
+
+            Returns:
+                float: promedio de los elemnetos de la lista.
+            
+        """
         suma = 0
         for val in distancias:
             suma = suma + val
@@ -50,8 +80,12 @@ class DetectorVertices:
 
 
     def detectaVertices(self):
+        """Método para detectar vértices en el arreglo de la figura, 
+            llama a otros dos métodos.
+            
+        """
         self.suavizaDistancias()
-        vertices = self.vertices()
+        vertices = self.cuentaVertices()
         print('La prueba tiene ' + str(len(vertices)) + ' vértices')
     
 def main():
@@ -75,7 +109,7 @@ def main():
     prueba4 = DetectorVertices(distancia_prueba4)
     prueba4.detectaVertices()
 
-    #triángulo
+    #triangulo
     prueba5 = DetectorVertices(distancia_prueba5)
     prueba5.detectaVertices()
 
