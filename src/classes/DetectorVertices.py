@@ -1,4 +1,4 @@
-class DeetectorVertices:
+class DetectorVertices:
     
     def __init__(self, distancias):
         self.distancias = distancias
@@ -59,14 +59,18 @@ def main():
     distancia_prueba1 = [3.0, 3.1, 3.3, 3.4, 3.6, 4.0, 4.2, 4.5, 4.7, 4.6, 4.3, 4.0, 3.8, 3.6, 3.5, 3.6, 3.7, 3.9, 4.0, 4.3, 4.6, 4.8, 4.5, 4.2, 4.0, 3.6, 3.4, 3.3, 3.1, 3.0, 3.1, 3.3, 3.4, 3.6, 4.0, 4.2, 4.5, 4.7, 4.6, 4.3, 4.0, 3.8, 3.6, 3.5, 3.6, 3.7, 3.9, 4.0, 4.3, 4.6, 4.8, 4.5, 4.2, 4.0, 3.6, 3.4, 3.3, 3.1]
     distancia_prueba2 = [1,3,4,5,6,8,9,8,9,10,13,10,9,8,7,8,6,5,6,7,8,9,10,11,12,10,9,8,7,5,4,3,1]
     distancia_prueba3 = [1,2,3,4,3,2,2,3,4,5,6,7,6,5,4,3,3]
+    distancia_prueba4 = [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
 
-    prueba1 = DeetectorVertices(distancia_prueba1)
+    prueba1 = DetectorVertices(distancia_prueba1)
     prueba1.detectaVertices()
 
-    prueba2 = DeetectorVertices(distancia_prueba2)
+    prueba2 = DetectorVertices(distancia_prueba2)
     prueba2.detectaVertices()
 
-    prueba3 = DeetectorVertices(distancia_prueba3)
+    prueba3 = DetectorVertices(distancia_prueba3)
     prueba3.detectaVertices()
+
+    prueba4 = DetectorVertices(distancia_prueba4)
+    prueba4.detectaVertices()
 
 main()
