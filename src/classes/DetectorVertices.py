@@ -58,7 +58,7 @@ class DetectorVertices:
         if indice_vertice != 0:
             vertices.append(indice_vertice)
         #print("Indices: " + str(indices_vertices))
-        return vertices
+        return len(vertices)
 
         
     def promedioDistancias(self, distancias):
@@ -86,7 +86,7 @@ class DetectorVertices:
         """
         self.suavizaDistancias()
         vertices = self.cuentaVertices()
-        print('La prueba tiene ' + str(len(vertices)) + ' vértices')
+        print('La prueba tiene ' + str(vertices) + ' vértices')
     
 def main():
 
