@@ -1,8 +1,6 @@
 from PIL import Image
 import copy
-import numpy
 from numpy import asarray
-import os
 
 class GestorImagen:
 
