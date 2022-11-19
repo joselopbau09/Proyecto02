@@ -35,7 +35,7 @@ class DetectorVertices:
            de distancias previamente procesada.
 
            Returns: 
-                list: los vértices en la figura.
+                int: los vértices en la figura.
 
         """
         valor_vertice = 0
@@ -64,7 +64,7 @@ class DetectorVertices:
            promedia elementos en una lista.
 
             Args: 
-                distancias (list): listade la que se van a obtener los promedios.
+                distancias (list): lista de la que se van a obtener los promedios.
 
             Returns:
                 float: promedio de los elemnetos de la lista.

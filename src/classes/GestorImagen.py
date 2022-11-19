@@ -4,7 +4,7 @@ from numpy import asarray
 
 """ Módulo GestorImagen """
 class GestorImagen:
-    """ Clase que se encarga de hacerla lectura de la imagen y crear una copia para cada figura de la imagen. 
+    """ Clase que se encarga de hacer la lectura de la imagen y crear una copia para cada figura de la imagen. 
 
     Attributes: 
         matrizImagen (list): Almacena el valor RGB de cada pixel de la imagen.

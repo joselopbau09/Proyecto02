@@ -16,13 +16,12 @@ class testDetector(unittest.TestCase):
 
         prueba1 = DetectorVertices(distancia_prueba1)
         vertices_prueba1 = 0
-        self.assertEqual(prueba1.detectaVertices, vertices_prueba1)
+        self.assertEqual(prueba1.detectaVertices(), vertices_prueba1)
 
         prueba2 = DetectorVertices(distancia_prueba2)
         vertices_prueba2 = 3
-        self.assertEqual(prueba2.detectaVertices, vertices_prueba2)
+        self.assertEqual(prueba2.detectaVertices(), vertices_prueba2)
 
         prueba3 = DetectorVertices(distancia_prueba3)
         vertices_prueba3 = 4
-        self.assertEqual(prueba3.detectaVertices, vertices_prueba3)
- 
+        self.assertEqual(prueba3.detectaVertices(), vertices_prueba3)
