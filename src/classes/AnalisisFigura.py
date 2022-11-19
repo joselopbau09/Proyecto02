@@ -42,7 +42,7 @@ class AnalisisFigura:
                     if(j < min_y):
                         min_y = j
                     if(j > max_y):
-                        min_y = j
+                        max_y = j
         anchura = max_x - min_x
         altura = max_y - min_y
         hipotenusa = max(anchura, altura) / 2
