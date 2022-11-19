@@ -3,8 +3,6 @@ import numpy
 from PIL import Image
 from classes.GestorImagen import GestorImagen
 from classes.AnalisisFigura import AnalisisFigura
-from classes.AnalisisDatos import AnalisisDatos
-
 
 def main():
     absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
