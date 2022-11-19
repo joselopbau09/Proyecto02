@@ -1,4 +1,3 @@
-
 from PIL import Image
 import copy
 from numpy import asarray
@@ -8,14 +7,14 @@ class GestorImagen:
     """ Clase que se encarga de hacerla lectura de la imagen y crear una copia para cada figura de la imagen. 
 
     Attributes: 
-        matrizImagen (list): Almacena el valor RGB de cada pixel de la imagén.
+        matrizImagen (list): Almacena el valor RGB de cada pixel de la imagen.
         almacenadorFiguras (list): Contiene las representaciones en matriz las figuras por separado.
 
 
     """
 
     def __init__(self, imagen):
-        """ Constructor que transforma una imagen en su representación matricial, e inicializa los atributod de la clase.
+        """ Constructor que transforma una imagen en su representación matricial, e inicializa los atributos de la clase.
 
         """
         img = Image.open(f'{imagen}')
@@ -23,7 +22,7 @@ class GestorImagen:
         self.almacenadorFiguras = []
 
     def buscadorColoresImagen(self):
-        """ Método que se encarga obtener los colores que se encuantran en la imagen.
+        """ Método que se encarga obtener los colores que se encuentran en la imagen.
 
         Returns:
             list: Colores en formato RGB de cada color.
@@ -69,7 +68,7 @@ class GestorImagen:
         """ Método que se encarga de obtener el atributo almacenadorFiguras.
         
         Returns:
-            list: Contiene las represntación matricial de las imagenes de cada figura.
+            list: Contiene las representación matricial de las imagenes de cada figura.
 
         """
 
