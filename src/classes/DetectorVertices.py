@@ -28,7 +28,6 @@ class DetectorVertices:
                 dist_suavizadas.append(self.promedioDistancias(self.distancias[i-2:i+2]))
 
         self.distancias = dist_suavizadas
-        #print("Dist_suavizadas: " + str(dist_suavizadas))
     
 
     def cuentaVertices(self):
@@ -57,7 +56,6 @@ class DetectorVertices:
 
         if indice_vertice != 0:
             vertices.append(indice_vertice)
-        #print("Indices: " + str(indices_vertices))
         return len(vertices)
 
         

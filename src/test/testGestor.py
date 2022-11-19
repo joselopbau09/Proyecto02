@@ -1,5 +1,7 @@
 
 import unittest
+from PIL import Image
+from numpy import asarray
 from classes.GestorImagen import GestorImagen
 
 class testGestor(unittest.TestCase):
@@ -32,5 +34,36 @@ class testGestor(unittest.TestCase):
         self.assertListEqual(imagen5.buscadorColoresImagen(), coloresImagen5)
 
     def testSeparadorFiguras(self):
-        pass
-    
+        """ Prueba si las figuras se separaron de manera correcta.
+
+        """
+        imgUno = self.obtencionMatriz('assets/example_5_01.bmp')
+        imgDos = self.obtencionMatriz('assets/example_5_02.bmp')
+        imgTres = self.obtencionMatriz('assets/example_5_03.bmp')
+        imgCuatro = self.obtencionMatriz('assets/example_5_04.bmp')
+        imgCinco = self.obtencionMatriz('assets/example_5_05.bmp')
+        imgSeis = self.obtencionMatriz('assets/example_5_06.bmp')
+        
+        imagen = GestorImagen('assets/example_5.bmp')
+        imagen.separadorFiguras()
+        maticesImagen = imagen.obtenerAlmacenador()
+        
+        self.assertListEqual(maticesImagen[0],imgUno)
+        self.assertListEqual(maticesImagen[1],imgDos)
+        self.assertListEqual(maticesImagen[2],imgTres)
+        self.assertListEqual(maticesImagen[3],imgCuatro)
+        self.assertListEqual(maticesImagen[4],imgCinco)
+        self.assertListEqual(maticesImagen[5],imgSeis)
+
+    def obtencionMatriz(self, nombreImagen):
+        """ Obtiene la represntación en matricial de la imagen.
+
+        Attributes:
+            nombreImagen(str): Directorio de la imagén.
+
+        Return:
+            Matriz que almacena los pixeles de la imagén.    
+        """
+        img = Image.open(f'{nombreImagen}')
+        matrizImagen = asarray(img).tolist()   
+        return matrizImagen

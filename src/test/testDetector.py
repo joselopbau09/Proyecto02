@@ -1,13 +1,13 @@
 import unittest
 from classes.DetectorVertices import DetectorVertices
 
-class testDetector:
-    """Clase que se encarga de realizar las pruebas unitarias de la clase DetectorVertices
+class testDetector(unittest.TestCase):
+    """Clase que se encarga de realizar las pruebas unitarias de la clase DetectorVertices.
 
     """
 
     def testDetectorVertices(self):
-        """Prueba si la cantidad de vértices encontrados es la adecuada
+        """Prueba si la cantidad de vértices encontrados es la adecuada.
         """
 
         distancia_prueba1 = [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
