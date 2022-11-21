@@ -1,3 +1,4 @@
+
 from PIL import Image
 import copy
 from numpy import asarray
@@ -46,13 +47,13 @@ class GestorImagen:
         colores = self.buscadorColoresImagen()
         colorFondo = colores.pop(0)
         while( len(colores) != 0):
-            imagen =copy.deepcopy( self.obtenerMatriz())
+            copiaImagen = copy.deepcopy( self.obtenerMatriz())
             colorFigura = colores.pop()
-            for i in range(1,len(imagen)):
-                for j in range(1, len(imagen[0])):
-                    if(( imagen[i][j] != colorFondo) and ( imagen[i][j] != colorFigura)):
-                        imagen[i][j] = colorFondo
-            self.almacenadorFiguras.append(imagen)
+            for i in range(1,len(copiaImagen)):
+                for j in range(1, len(copiaImagen[0])):
+                    if(( copiaImagen[i][j] != colorFondo) and ( copiaImagen[i][j] != colorFigura)):
+                        copiaImagen[i][j] = colorFondo
+            self.almacenadorFiguras.append(copiaImagen)
     
     def obtenerMatriz(self):
         """ Método que se encarga de obtener el atributo matrizImagen.
