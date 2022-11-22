@@ -1,4 +1,3 @@
-
 from PIL import Image
 import copy
 from numpy import asarray
@@ -74,4 +73,3 @@ class GestorImagen:
         """
 
         return self.almacenadorFiguras
-
