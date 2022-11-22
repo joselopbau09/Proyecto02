@@ -10,9 +10,27 @@ from classes.GestorImagen import GestorImagen
 
 class testFigura(unittest.TestCase):
     """ Clase que se encarga de realizar las pruebas unitarias de la clase AnalisisFigura.
-    
+
+    Métodos:
+    crearAnalisiFigura(self):
+        Crea una instancia de la clase.
+    testBuscadorCentro(self):
+        Prueba para el método BuscadorCentro.
+    testCalculaHipotenusa(self):
+        Prueba para el método calculaHipotenusa.
+    testDentro(self):
+        Prueba para el método dentro.
+    testRayos(self):
+        Prueba para el método rayos.
     """
     def crearAnalisiFigura(self):
+        """
+        Función que crea las condiciones necesarias para hacer las pruebas sobre las
+        funciones de las clase AnalisisFigura.
+
+        Regresa:
+            af (Instancia de AnalisisFiguras)
+        """
         absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
         absolute_image_path = os.path.join(absolute_folder_path, '../assets/example_1.bmp')
         gi = GestorImagen(absolute_image_path)
@@ -24,6 +42,9 @@ class testFigura(unittest.TestCase):
         return af
 
     def testBuscadorCentro(self):
+        """
+        Prueba para el método buscadorCentro.
+        """
         af = self.crearAnalisiFigura()
         centro_x, centro_y = af.buscadorCentro()
         self.assertGreater(centro_x,0)
@@ -35,6 +56,9 @@ class testFigura(unittest.TestCase):
         self.assertTrue((mitad_y <= int(centro_y)) and (int(centro_y) < mitad_y + 10))
 
     def testCalculaHipotenusa(self):
+        """
+        Prueba para el método calculaHipotenusa.
+        """
         af = self.crearAnalisiFigura()
         hipotenusa = af.calculaHipotenusa()
         self.assertGreater(hipotenusa,0)
@@ -45,6 +69,9 @@ class testFigura(unittest.TestCase):
         self.assertLess(hipotenusa,mitad)
 
     def testDentro(self):
+        """
+        Prueba para el método dentro.
+        """
         af = self.crearAnalisiFigura()
         coord_x = 0
         coord_y = 0
@@ -56,6 +83,9 @@ class testFigura(unittest.TestCase):
         self.assertFalse(af.dentro(coord_x + h,coord_y + h))
 
     def testRayos(self):
+        """
+        Prueba para el método rayos.
+        """
         af = self.crearAnalisiFigura()
         centro_x, centro_y = af.buscadorCentro()
         h = af.calculaHipotenusa()
