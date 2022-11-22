@@ -88,3 +88,16 @@ class DetectorVertices:
         self.suavizaDistancias()
         vertices = self.cuentaVertices()
         return vertices
+    
+    def clasificaFigura(self, numVertices):
+        if(numVertices < 3):
+            return 'O'
+
+        elif(numVertices == 3):
+            return 'T'
+
+        elif(numVertices == 4):
+            return 'C'
+
+        else:
+            return 'X'
