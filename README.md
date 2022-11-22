@@ -1,7 +1,7 @@
 ### Integrantes
 - García Velasco Erick Iram  - 318044309
 - López Bautista José Luis - 317191895
-- Eduardo Alfonso Reyes López 
+- Eduardo Alfonso Reyes López - 420003681
 # Identificador de figuaras 
 
 ## Versión o herramientas:
