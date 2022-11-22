@@ -17,6 +17,7 @@ class DetectorVertices:
 
     def suavizaDistancias(self):
         """Metodo que reduce el ruido entre las distancias del centro a los extremos de la figura.
+        
         """
         dist_suavizadas = []
         for i in range(len(self.distancias)):
@@ -82,22 +83,28 @@ class DetectorVertices:
             llama a otros dos métodos.
 
             Returns:
-            int: cantidad de vértices de la figura
+                int: cantidad de vértices de la figura
             
         """
         self.suavizaDistancias()
         vertices = self.cuentaVertices()
         return vertices
+
     
     def clasificaFigura(self, numVertices):
+        """Método para clasificar figuras de acuerdo a su número de vértices.
+
+           Args:
+                numVertices (int): el número de vértices encontrado en la lista de distancias.
+
+            Returns:
+                string: el tipo de figura
+        """
         if(numVertices < 3):
-            return 'O'
-
+            return "O"
         elif(numVertices == 3):
-            return 'T'
-
+            return "T"
         elif(numVertices == 4):
-            return 'C'
-
+            return "C"
         else:
-            return 'X'
+            return "X"
