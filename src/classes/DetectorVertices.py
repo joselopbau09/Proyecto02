@@ -1,3 +1,5 @@
+from sys import argv
+
 class DetectorVertices:
     """ Clase que recibe una lista con las distancias de la figura
         y la procesa para obtener el número de vértices.
@@ -44,17 +46,27 @@ class DetectorVertices:
         promedio_dist = self.promedioDistancias(self.distancias)
         vertices = []
         
-        for i, valor in enumerate(self.distancias):
-            if valor > promedio_dist:
-                if valor_vertice == 0 or valor > valor_vertice:
-                    valor_vertice = valor
-                    indice_vertice = i
+        #for i, valor in enumerate(self.distancias):
+            ##if valor > promedio_dist:
+                #if valor_vertice == 0 or valor > valor_vertice:
+                    #valor_vertice = valor
+                    #indice_vertice = i
 
-            elif valor < promedio_dist and indice_vertice != 0:
+            #elif valor < promedio_dist and indice_vertice != 0:
+                    #vertices.append(indice_vertice)
+                   # indice_vertice = 0
+                    #valor_vertice = 0
+
+        for i, valor in enumerate(self.distancias):
+            if indice_vertice != 0: 
                     vertices.append(indice_vertice)
                     indice_vertice = 0
                     valor_vertice = 0
-
+            else:
+                if valor_vertice == 0 or valor > valor_vertice:
+                    valor_vertice = valor
+                    indice_vertice = i
+                    
         if indice_vertice != 0:
             vertices.append(indice_vertice)
         return len(vertices)
