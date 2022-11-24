@@ -45,7 +45,7 @@ class testGestor(unittest.TestCase):
         imgSeis = self.obtencionMatriz('assets/example_5_06.bmp')
         
         imagen = GestorImagen('assets/example_5.bmp')
-        imagen.separadorFiguras()
+        imagen.separarFiguras()
         maticesImagen = imagen.obtenerAlmacenador()
         
         self.assertListEqual(maticesImagen[0],imgUno)

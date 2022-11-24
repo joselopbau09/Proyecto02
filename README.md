@@ -15,15 +15,15 @@ Para ejecutar el programa se necesita:
 - Python 3
 - Instalar la paquetería Pillow, se puede hacer con el siguiente comando: 
 ```
-> python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 Luego se ejecuta:
 ```
-> python3 -m pip install --upgrade Pillow
+python3 -m pip install --upgrade Pillow
 ```
 - Instalar la paquetería Numpy:
 ```
-> pip install numpy
+pip install numpy
 ```
 
 ## Cómo ejecutarlo:
@@ -34,13 +34,13 @@ Proyecto-02\src>
 2. Recuerda que se debe de agregar la imagen a la carpeta assets, una vez hecho esto se escribe el siguiente comando y posterior a `main.py` se ecribe el nombre de la imagen y se ejecuta el comando.
 
 ```
->Python3 main.py
+Python3 main.py
 ```
 
 -Para ejecutar las pruebas unitarias desde la misma posición en el directorio ejecutar el siguiente comando:
 
 ```
-> python -m unittest discover
+python -m unittest discover
 ```
 
 ## Cómo usarlo

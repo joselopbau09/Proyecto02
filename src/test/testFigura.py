@@ -34,7 +34,7 @@ class testFigura(unittest.TestCase):
         absolute_folder_path = os.path.dirname(os.path.realpath(__file__))
         absolute_image_path = os.path.join(absolute_folder_path, '../assets/example_1.bmp')
         gi = GestorImagen(absolute_image_path)
-        gi.separadorFiguras()
+        gi.separarFiguras()
         figuras = gi.obtenerAlmacenador()
         imagen1 = figuras.pop(1)
         arregloImagen = numpy.array(imagen1)
