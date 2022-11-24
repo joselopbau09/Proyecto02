@@ -1,3 +1,5 @@
+from sys import argv
+
 class DetectorVertices:
     """ Clase que recibe una lista con las distancias de la figura
         y la procesa para obtener el número de vértices.
