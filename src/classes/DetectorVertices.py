@@ -1,5 +1,6 @@
 from sys import argv
 
+""" Módulo DetectorVertices """
 class DetectorVertices:
     """ Clase que recibe una lista con las distancias de la figura
         y la procesa para obtener el número de vértices.
@@ -93,7 +94,6 @@ class DetectorVertices:
         """
         self.suavizaDistancias()
         vertices = self.cuentaVertices()
-        print(vertices)
         return vertices
 
     
