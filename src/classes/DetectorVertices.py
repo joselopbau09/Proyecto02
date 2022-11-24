@@ -21,14 +21,15 @@ class DetectorVertices:
         """
         dist_suavizadas = []
         for i in range(len(self.distancias)):
-            if(i < 2):
-                dist_suavizadas.append(self.promedioDistancias(self.distancias[i:i+2]))
-            elif(i > len(dist_suavizadas)-2):
-                dist_suavizadas.append(self.promedioDistancias(self.distancias[i-2:i]))
+            if(i < 15):
+                dist_suavizadas.append(self.promedioDistancias(self.distancias[i:i+15]))
+            elif(i > len(dist_suavizadas)-15):
+                dist_suavizadas.append(self.promedioDistancias(self.distancias[i-15:i]))
             else:
-                dist_suavizadas.append(self.promedioDistancias(self.distancias[i-2:i+2]))
+                dist_suavizadas.append(self.promedioDistancias(self.distancias[i-15:i+15]))
 
         self.distancias = dist_suavizadas
+        return dist_suavizadas
     
 
     def cuentaVertices(self):
@@ -43,17 +44,19 @@ class DetectorVertices:
         indice_vertice = 0
         promedio_dist = self.promedioDistancias(self.distancias)
         vertices = []
-        
-        for i, valor in enumerate(self.distancias):
-            if valor > promedio_dist:
-                if valor_vertice == 0 or valor > valor_vertice:
-                    valor_vertice = valor
-                    indice_vertice = i
+        if(max(self.distancias) - min(self.distancias) < 2.5):
+            pass
+        else:
+            for i, valor in enumerate(self.distancias):
+                if valor > promedio_dist:
+                    if valor_vertice == 0 or valor > valor_vertice:
+                        valor_vertice = valor
+                        indice_vertice = i
 
-            elif valor < promedio_dist and indice_vertice != 0:
-                    vertices.append(indice_vertice)
-                    indice_vertice = 0
-                    valor_vertice = 0
+                elif valor < promedio_dist and indice_vertice != 0:
+                        vertices.append(indice_vertice)
+                        indice_vertice = 0
+                        valor_vertice = 0
 
         if indice_vertice != 0:
             vertices.append(indice_vertice)
@@ -88,6 +91,7 @@ class DetectorVertices:
         """
         self.suavizaDistancias()
         vertices = self.cuentaVertices()
+        print(vertices)
         return vertices
 
     
@@ -100,11 +104,11 @@ class DetectorVertices:
             Returns:
                 string: el tipo de figura
         """
-        if(numVertices < 3):
+        if(numVertices == 0):
             return "O"
         elif(numVertices == 3):
             return "T"
-        elif(numVertices == 4):
+        elif(numVertices == 4 or numVertices == 2):
             return "C"
         else:
             return "X"
