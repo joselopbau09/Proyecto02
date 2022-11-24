@@ -49,7 +49,7 @@ class AnalisisFigura:
         del centro promediando ambas sumas.
 
         Regresa:
-        Coordenada x y coordenada y en la imagen del centro de la figura. (int,int)
+            Coordenada x y coordenada y en la imagen del centro de la figura. (int,int)
         """
         suma_x = 0
         suma_y = 0
@@ -72,8 +72,8 @@ class AnalisisFigura:
         trigonométrico de los rayos.
 
         Regresa:
-        hipotenusa (int): Distancia aproximada que va del centro de la
-        figura al borde más lejano de la misma.
+            hipotenusa (int): Distancia aproximada que va del centro de la
+            figura al borde más lejano de la misma.
         """
         min_x = len(self.imagenFigura[0])
         max_x = 0
@@ -102,12 +102,12 @@ class AnalisisFigura:
         de la imagen y pertenece a la figura.
 
         Parámetros:
-        coord_x (int): Coordenada en x del pixel.
-        coord_y (int): Coordenada en y del pixel.
+            coord_x (int): Coordenada en x del pixel.
+            coord_y (int): Coordenada en y del pixel.
 
         Regresa:
-        Valor de verdad que es verdadero si el pixel está dentro
-        de la figura.
+            Valor de verdad que es verdadero si el pixel está dentro
+            de la figura.
         """
         colorPixel = self.imagenFigura[int(coord_y)][int(coord_x)]
         altura = len(self.imagenFigura)
@@ -157,7 +157,7 @@ class AnalisisFigura:
         que representa la imagen.
 
         Regresa:
-        imagenFigura (arreglo2D): El arreglo con la información
-        de la imagen.
+            imagenFigura (arreglo2D): El arreglo con la información
+            de la imagen.
         """
         return self.imagenFigura

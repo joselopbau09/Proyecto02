@@ -31,10 +31,10 @@ Luego se ejecuta:
 ```
 Proyecto-02\src>
 ```
-2. Ejecutar el comando 
+2. Recuerda que se debe de agregar la imagen a la carpeta assets, una vez hecho esto se escribe el siguiente comando y posterior a `main.py` se ecribe el nombre de la imagen y se ejecuta el comando.
 
 ```
-> main.py
+>Python3 main.py
 ```
 
 -Para ejecutar las pruebas unitarias desde la misma posición en el directorio ejecutar el siguiente comando:

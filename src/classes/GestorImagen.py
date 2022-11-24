@@ -1,3 +1,4 @@
+
 from PIL import Image
 import copy
 from numpy import asarray
@@ -20,11 +21,13 @@ class GestorImagen:
         img = Image.open(f'{imagen}')
         self.matrizImagen = asarray(img).tolist()
         self.almacenadorFiguras = []
+        self.coloresImagen = []
+        self.separarFiguras()
 
-    def buscadorColoresImagen(self):
+    def buscadorColoresImagen(self,):
         """ Método que se encarga obtener los colores que se encuentran en la imagen.
 
-        Returns:
+        Regresa:
             list: Colores en formato RGB de cada color.
 
         """
@@ -38,7 +41,7 @@ class GestorImagen:
 
         return coloresImagen            
     
-    def separadorFiguras(self):
+    def separarFiguras(self):
         """ Método que crea las copias para cada figura en particular y las guarda en almacenadorFiguras.
 
         """
@@ -48,6 +51,7 @@ class GestorImagen:
         while( len(colores) != 0):
             copiaImagen = copy.deepcopy( self.obtenerMatriz())
             colorFigura = colores.pop()
+            self.coloresImagen.append(colorFigura)
             for i in range(1,len(copiaImagen)):
                 for j in range(1, len(copiaImagen[0])):
                     if(( copiaImagen[i][j] != colorFondo) and ( copiaImagen[i][j] != colorFigura)):
@@ -57,17 +61,27 @@ class GestorImagen:
     def obtenerMatriz(self):
         """ Método que se encarga de obtener el atributo matrizImagen.
         
-        Returns:
+        Regresa:
             list: Representación matricial de la imagen.
 
         """
 
         return self.matrizImagen
+
+    def obtenerColores(self):
+        """ Método que se encarga de obtener el atributo coloresImagen.
+        
+        Regresa:
+            list: Colores que se encuentran en la imagen.
+
+        """
+
+        return self.coloresImagen    
             
     def obtenerAlmacenador(self):
         """ Método que se encarga de obtener el atributo almacenadorFiguras.
         
-        Returns:
+        Regresa:
             list: Contiene las representación matricial de las imagenes de cada figura.
 
         """

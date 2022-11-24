@@ -4,8 +4,8 @@ class DetectorVertices:
     """ Clase que recibe una lista con las distancias de la figura
         y la procesa para obtener el número de vértices.
 
-        Attributes: 
-        distancias (list): lista de las distancias.
+        Atributos: 
+            distancias (list): lista de las distancias.
 
     """
     
@@ -38,7 +38,7 @@ class DetectorVertices:
         """Algoritmo para detectar los vertices de una figura usando la lista
            de distancias previamente procesada.
 
-           Returns: 
+           Regresa: 
                 int: los vértices en la figura.
 
         """
@@ -69,10 +69,10 @@ class DetectorVertices:
         """Metodo auxiliar para reducir el ruido en las distancias,
            promedia elementos en una lista.
 
-            Args: 
+            Parámetros: 
                 distancias (list): lista de la que se van a obtener los promedios.
 
-            Returns:
+            Regresa:
                 float: promedio de los elemnetos de la lista.
             
         """
@@ -87,7 +87,7 @@ class DetectorVertices:
         """Método para detectar vértices en el arreglo de la figura, 
             llama a otros dos métodos.
 
-            Returns:
+            Regresa:
                 int: cantidad de vértices de la figura
             
         """
@@ -100,10 +100,10 @@ class DetectorVertices:
     def clasificaFigura(self, numVertices):
         """Método para clasificar figuras de acuerdo a su número de vértices.
 
-           Args:
+            Parámetros:
                 numVertices (int): el número de vértices encontrado en la lista de distancias.
 
-            Returns:
+            Regresa:
                 string: el tipo de figura
         """
         if(numVertices == 0):
