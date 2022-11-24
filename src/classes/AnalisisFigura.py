@@ -144,7 +144,7 @@ class AnalisisFigura:
             dx = hipotenusa * math.cos(math.radians(i))
             dy = hipotenusa * math.sin(math.radians(i))
             paso = max(abs(dx),abs(dy))
-            while(self.dentro(coord_x, coord_y) == True):
+            while(self.dentro(coord_x, coord_y)):
                 coord_x += dx / paso
                 coord_y += dy / paso
             longRayo = math.sqrt((coord_x - centro_x)**2 + (coord_y - centro_y)**2)
